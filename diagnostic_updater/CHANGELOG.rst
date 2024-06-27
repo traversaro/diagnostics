@@ -2,6 +2,12 @@
 Changelog for package diagnostic_updater
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* change(diagnosed-publisher): allow specifying node clock (`#340 <https://github.com/ros/diagnostics/issues/340>`_)
+* Fix usage of rclcpp::ok with a non-default context (`#352 <https://github.com/ros/diagnostics/issues/352>`_)
+* Contributors: Hervé Audren, Rein Appeldoorn
+
 3.2.0 (2024-03-22)
 ------------------
 * including depdency (`#322 <https://github.com/ros/diagnostics/issues/322>`_)
