@@ -2,8 +2,8 @@
 Changelog for package diagnostic_updater
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+4.3.1 (2024-07-30)
+------------------
 * Fix correctly exporting the library (`#388 <https://github.com/ros/diagnostics/issues/388>`_) (`#393 <https://github.com/ros/diagnostics/issues/393>`_)
 * Minimize header includes by moving impl to .cpp files (`#331 <https://github.com/ros/diagnostics/issues/331>`_) and Fix usage of rclcpp::ok with a non-default context (`#352 <https://github.com/ros/diagnostics/issues/352>`_)  (`#390 <https://github.com/ros/diagnostics/issues/390>`_)
 * Contributors: Christian Henkel, Ramon Wijnands, Hervé Audren
