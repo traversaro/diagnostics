@@ -9,8 +9,8 @@ on:
     - cron: "0 20 * * 0"
 
 jobs:
-  build_and_test:
-    name: ${{ matrix.package }} on ${{ matrix.distro }}
+  build_and_test_linux:
+    name: ${{ matrix.package }} on ${{ matrix.distro }} with Linux
     strategy:
       fail-fast: false
       matrix:
@@ -35,3 +35,37 @@ jobs:
           package-name: ${{ matrix.package }}
           # vcs-repo-file-url: |
           #   https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
+
+  build_and_test_windows:
+    name: ${{ matrix.package }} on ${{ matrix.distro }} with Windows
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - distro: jazzy
+    runs-on: windows-2019
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Build Dependencies
+      uses: mamba-org/setup-micromamba@v2
+      with:
+        environment-file: .github/robostack_env_${{ matrix.distro }}.yml
+        init-shell: bash cmd.exe powershell
+
+    - name: Build
+      shell: cmd /C call {0}
+      run: |
+        :: Create colcon workspace and move current folder test
+        cd ..
+        mkdir test_ws\src
+        cd diagnostics
+        xcopy * ..\test_ws\src /E /H /C /I
+        cd ..\test_ws      
+        :: Install dependencies
+        rosdep init
+        rosdep update
+        rosdep install --from-paths . --ignore-src -r -y      
+        :: Build
+        colcon build
+        :: Test
+        colcon test

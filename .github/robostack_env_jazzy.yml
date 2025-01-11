@@ -1,0 +1,14 @@
+name: test
+channels:
+  - robostack-jazzy
+  - conda-forge
+dependencies:
+  - cxx-compiler
+  - ninja
+  - cmake
+  - pkg-config
+  - rosdep
+  - rosdistro
+  - colcon-common-extensions
+  - ros-jazzy-ros-workspace
+  - ros-jazzy-ament-cmake
