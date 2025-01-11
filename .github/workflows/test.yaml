@@ -10,7 +10,7 @@ on:
 
 jobs:
   build_and_test_linux:
-    name: ${{ matrix.package }} on ${{ matrix.distro }}
+    name: ${{ matrix.package }} on ${{ matrix.distro }} with Linux
     strategy:
       fail-fast: false
       matrix:
@@ -37,7 +37,7 @@ jobs:
           #   https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
 
   build_and_test_windows:
-    name: ${{ matrix.package }} on Windows
+    name: ${{ matrix.package }} on ${{ matrix.distro }} with Windows
     strategy:
       fail-fast: false
       matrix:
