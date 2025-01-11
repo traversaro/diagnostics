@@ -67,3 +67,5 @@ jobs:
         rosdep install --from-paths . --ignore-src -r -y      
         :: Build
         colcon build
+        :: Test
+        colcon test

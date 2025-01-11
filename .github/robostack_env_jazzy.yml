@@ -10,5 +10,4 @@ dependencies:
   - rosdep
   - rosdistro
   - colcon-common-extensions
-  - ros-jazzy-ros-base
-
+  - ros-jazzy-ros-workspace
