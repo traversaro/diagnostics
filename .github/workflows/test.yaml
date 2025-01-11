@@ -45,6 +45,7 @@ jobs:
           - distro: jazzy
     runs-on: windows-2019
     steps:
+    - uses: actions/checkout@v4
     - name: Set up Build Dependencies
       uses: mamba-org/setup-micromamba@v2
       with:
