@@ -51,19 +51,16 @@ jobs:
         environment-file: .github/robostack_env_${{ matrix.distro }}.yaml
     - name: Build
       shell: cmd /C call {0}
-        run: |
-          :: Create colcon workspace and move current folder test
-          cd ..
-          mkdir test_ws\src
-          cd diagnostic
-          xcopy * ..\test_ws\src /E /H /C /I
-          cd ..\test_ws
-
-          :: Install dependencies
-          rosdep init
-          rosdep update
-          rosdep install --from-paths . --ignore-src -r -y
-
-          :: Build
-          colcon build
-  
+      run: |
+        :: Create colcon workspace and move current folder test
+        cd ..
+        mkdir test_ws\src
+        cd diagnostic
+        xcopy * ..\test_ws\src /E /H /C /I
+        cd ..\test_ws      
+        :: Install dependencies
+        rosdep init
+        rosdep update
+        rosdep install --from-paths . --ignore-src -r -y      
+        :: Build
+        colcon build
