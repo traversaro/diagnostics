@@ -49,7 +49,7 @@ jobs:
     - name: Set up Build Dependencies
       uses: mamba-org/setup-micromamba@v2
       with:
-        environment-file: .github/robostack_env_${{ matrix.distro }}.yaml
+        environment-file: robostack_env_${{ matrix.distro }}.yaml
     - name: Build
       shell: cmd /C call {0}
       run: |
