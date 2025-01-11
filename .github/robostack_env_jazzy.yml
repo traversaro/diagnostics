@@ -11,3 +11,4 @@ dependencies:
   - rosdistro
   - colcon-common-extensions
   - ros-jazzy-ros-workspace
+  - ros-jazzy-ament-cmake
