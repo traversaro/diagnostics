@@ -21,9 +21,13 @@ jobs:
             self_test,
           ]
         include:
-          - distro: rolling
+          - runs_on: ubuntu-latest
+            distro: rolling
             os: 24.04
-    runs-on: ubuntu-latest
+          - runs_on: windows-2019
+            distro: rolling
+            os: notrelevant
+    runs-on: ${{ matrix.runs_on }}
     container: ubuntu:${{ matrix.os }}
     steps:
       - uses: ros-tooling/setup-ros@master
