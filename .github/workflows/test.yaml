@@ -49,14 +49,16 @@ jobs:
     - name: Set up Build Dependencies
       uses: mamba-org/setup-micromamba@v2
       with:
-        environment-file: robostack_env_${{ matrix.distro }}.yml
+        environment-file: .github/robostack_env_${{ matrix.distro }}.yml
+        init-shell: bash cmd.exe powershell
+
     - name: Build
       shell: cmd /C call {0}
       run: |
         :: Create colcon workspace and move current folder test
         cd ..
         mkdir test_ws\src
-        cd diagnostic
+        cd diagnostics
         xcopy * ..\test_ws\src /E /H /C /I
         cd ..\test_ws      
         :: Install dependencies
